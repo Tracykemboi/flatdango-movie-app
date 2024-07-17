@@ -1,6 +1,6 @@
 
 function showOneFilm(film){
-    let one=document.querySelector('#first-movie')
+    let one=document.querySelector('#first-movie')//add html for the first movies
     one.innerHTML=`
     <img src="${film.poster}">
     <div class="filmcontent">
@@ -20,7 +20,7 @@ function showOneFilm(film){
     <button id='PurchaseTicket'> Buy Ticket</button>
     </div>
     </div>
-    `
+    `//here we can update the site when we buy a ticket to indicate if sold out
     const purchaseButton = one.querySelector('#PurchaseTicket');
     purchaseButton.addEventListener('click', () => {
         if (film.tickets_sold < film.capacity) {
@@ -33,15 +33,7 @@ function showOneFilm(film){
         }
     });
 }
-    // one.querySelector('#PurchaseTicket').addEventListener('click',()=>{
-    //   film.tickets_sold+= 1 
-    //     one.querySelector('span').textContent=film.tickets_sold
-    //     updateTicketPurchase()
-    // })
-
-    
-
-
+  //displays all the movies to the webapp from the db.json
 function showAllFilm(film){
 let poster=document.createElement('li')
 poster.className='filmitem'
@@ -64,12 +56,7 @@ ${film.title}
 <button id='Purchaseticket'> Buy Ticket</button>
 </div>
 </div>
-`
-// poster.querySelector('#Purchaseticket').addEventListener('click',()=>{
-//   film.tickets_sold+= 1 
-//     poster.querySelector('span').textContent=film.tickets_sold
-//     updateTicketPurchase()
-// })
+`//here we uodate the purchases
 const purchasebutton = poster.querySelector('#Purchaseticket');
     purchasebutton.addEventListener('click', () => {
         if (film.tickets_sold < film.capacity) {
@@ -94,8 +81,6 @@ function getOneFilm() {
                 showOneFilm(films[0]);
 })
 }
-
-
 function getAllFilms() {
     fetch('http://localhost:3000/films')
     .then(res=>res.json())
@@ -121,7 +106,7 @@ function updateTicketPurchase(filmsobj) {
         // Handle errors (e.g., network issues, invalid data, etc.)
     });
 }
-
+//function to call the fuctions that get details from db.json
 function initializeFilms() {
     getOneFilm()
     return getAllFilms()

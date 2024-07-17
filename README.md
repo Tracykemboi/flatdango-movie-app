@@ -21,21 +21,6 @@ Styling the header with a pale violet-red background color and centered text.
 Defining styles for the movie content container (#filmcontent).
 JavaScript (index.js):
 The heart of the project lies in the JavaScript file.
-Let’s break down the key functions:
-showOneFilm(film):
-Creates a movie poster element with relevant information.
-Dynamically displays movie details, including title, tickets sold, remaining tickets, runtime, showtime, and description.
-Provides a “Buy Ticket” button that increments the ticket count when clicked.
-Appends the movie poster to the list of films.
-getAllFilms():
-Fetches movie data from the http://localhost:3000/films endpoint (assuming you have a local JSON server running).
-Calls showOneFilm(film) for each movie in the response.
-updateTicketPurchase(filmObj):
-Updates the ticket count for a specific movie.
-Sends a PATCH request to the server with the modified data.
-initializeFilms():
-Calls getAllFilms() to populate the movie list when the page loads.
- 
 
 Installation
 Clone this repository to your local machine.
@@ -49,6 +34,10 @@ npm run json-server
 This will serve the film data from the db.json file.
 Open the index.html file in your browser to explore the movie listings.
 Click the “Buy Ticket” button to simulate purchasing a ticket (the ticket count will increase).
+Browse the list of available movies.
+Click the “Buy Ticket” button to purchase a ticket.
+The available ticket count will update dynamically.
+If all tickets are sold out, an alert will notify the user.
 API Data
 The film data is stored in the db.json file. Each film object has the following properties:
 
