@@ -54,7 +54,7 @@ ${film.title}
 <p>
 <span class="tickets-Sold">${film.tickets_sold}</span> Tickets sold
 </p>
-<p id='remainingtickets'>Available tickets = ${film.capacity-film.tickets_sold}</P>
+<p id='remainingTickets'>Available tickets = ${film.capacity-film.tickets_sold}</P>
 <p>Theatre capacity = ${film.capacity}</p>
 <p>Show runtime = ${film.runtime}</p>
 <p>Showtime = ${film.showtime}</p>
@@ -65,17 +65,23 @@ ${film.title}
 </div>
 </div>
 `
-const purchaseButton = poster.querySelector('#Purchaseticket');
-purchaseButton.addEventListener('click', () => {
-    if (film.tickets_sold < film.capacity) {
-        film.tickets_sold += 1;
-        one.querySelector('.tickets-Sold').textContent = film.tickets_sold;
-        one.querySelector('#remainingtickets').textContent = `Available tickets = ${film.capacity - film.tickets_sold}`;
-        updateTicketPurchase();
-    } else {
-        alert('Sorry, all tickets are sold out.');
-    }
-});
+// poster.querySelector('#Purchaseticket').addEventListener('click',()=>{
+//   film.tickets_sold+= 1 
+//     poster.querySelector('span').textContent=film.tickets_sold
+//     updateTicketPurchase()
+// })
+const purchasebutton = poster.querySelector('#Purchaseticket');
+    purchasebutton.addEventListener('click', () => {
+        if (film.tickets_sold < film.capacity) {
+            film.tickets_sold += 1;
+            poster.querySelector('.tickets-Sold').textContent = film.tickets_sold;
+            poster.querySelector('#remainingTickets').textContent = `Available tickets = ${film.capacity - film.tickets_sold}`;
+            updateTicketPurchase();
+        } else {
+            alert('Sorry, all tickets are sold out.');
+        }
+    });
+document.querySelector('#films').appendChild(poster)
 }
 
 // fetch requests
