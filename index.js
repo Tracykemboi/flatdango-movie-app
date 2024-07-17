@@ -39,7 +39,7 @@ function showOneFilm(film){
     //     updateTicketPurchase()
     // })
 
-    }
+    
 
 
 function showAllFilm(film){
@@ -65,13 +65,17 @@ ${film.title}
 </div>
 </div>
 `
-poster.querySelector('#Purchaseticket').addEventListener('click',()=>{
-  film.tickets_sold+= 1 
-  const availableTickets=film.capacity-film.tickets_sold
-    poster.querySelector('span').textContent=film.tickets_sold
-    updateTicketPurchase()
-})
-document.querySelector('#films').appendChild(poster)
+const purchaseButton = poster.querySelector('#Purchaseticket');
+purchaseButton.addEventListener('click', () => {
+    if (film.tickets_sold < film.capacity) {
+        film.tickets_sold += 1;
+        one.querySelector('.tickets-Sold').textContent = film.tickets_sold;
+        one.querySelector('#remainingtickets').textContent = `Available tickets = ${film.capacity - film.tickets_sold}`;
+        updateTicketPurchase();
+    } else {
+        alert('Sorry, all tickets are sold out.');
+    }
+});
 }
 
 // fetch requests
