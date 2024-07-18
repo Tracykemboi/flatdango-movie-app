@@ -6,6 +6,7 @@ Overview
 The Flatdango Movie Theater website allows users to view a list of available films, along with their details such as showtimes, ticket availability, and descriptions. The project consists of an HTML file, a CSS file, and an index.js file that fetches film data from a JSON server.
 
 Web app hosting;https://flatdango-movie-app.vercel.app/
+json server https://localhost:3000/films
 
 Features
 HTML Structure (index.html):
